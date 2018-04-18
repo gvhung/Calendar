@@ -1,18 +1,29 @@
-﻿using System;
+﻿using Microsoft.Graph;
+using Microsoft.Identity.Client;
+using System;
 using Xamarin.Forms;
 
 namespace Calendar
 {
 	public partial class App : Application
 	{
-		public App ()
-		{
-			InitializeComponent();
+        public static PublicClientApplication IdentityClientApp = null;
 
-			MainPage = new MainPage();
-		}
+        public static string ClientID = "36df6350-62d8-45f1-a66b-dcea0d12f768";
 
-		protected override void OnStart ()
+        public static string[] Scopes = { "User.Read", "Calendars.Read ", "Calendars.ReadWrite", "Mail.Send", "User.ReadBasic.All" };
+
+        public static UIParent UiParent = null;
+
+        public static DirectoryObject Me { get; set; }
+        public App()
+        {
+            InitializeComponent();
+            IdentityClientApp = new PublicClientApplication(ClientID);
+            MainPage = new NavigationPage(new MainPage());
+        }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

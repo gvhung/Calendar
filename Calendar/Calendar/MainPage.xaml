@@ -6,9 +6,10 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="20" Spacing="10">
+            <Button x:Name="Authenticate" Text="Authenticate" TextColor="Red" BackgroundColor="Yellow" FontSize="Medium" Clicked="AuthenticateClicked"/>
+        </StackLayout>
+
     </StackLayout>
 
 </ContentPage>
